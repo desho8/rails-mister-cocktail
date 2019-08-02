@@ -19,4 +19,9 @@ ingredients = JSON.parse(open(url).read)
 ingredients["drinks"].each do |ingredient|
   i = Ingredient.create(name: ingredient["strIngredient1"])
   puts "create #{i.name}"
+
+  url = "http://static.giantbomb.com/uploads/original/9/99864/2419866-nes_console_set.png"
+  article = Article.new(title: 'NES', body: "A great console")
+  article.remote_photo_url = url
+  article.save
 end
